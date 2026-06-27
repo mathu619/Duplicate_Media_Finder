@@ -1,0 +1,345 @@
+/* ═══════════════════════════════════════════════════
+   Mathu's Duplicate Audio Finder - Dark Liquid Glass Theme
+   Direction 1 · PySide6 QSS
+   ═══════════════════════════════════════════════════ */
+
+/* ── Base ────────────────────────────────────────── */
+QWidget {
+    background-color: transparent;
+    color: #c8c0e8;
+    font-family: "Inter";
+    font-size: 13px;
+    selection-background-color: rgba(120, 80, 255, 80);
+    selection-color: #ffffff;
+}
+
+QMainWindow {
+    background-color: #0f0c1a;
+}
+
+/* ── Glass panel frames ──────────────────────────── */
+/* Apply objectName="glassPanel" to any QFrame acting as a container */
+QFrame#glassPanel {
+    background-color: rgba(255, 255, 255, 14);
+    border: 1px solid rgba(255, 255, 255, 26);
+    border-radius: 12px;
+}
+
+/* ── QMenuBar ────────────────────────────────────── */
+QMenuBar {
+    background-color: rgba(255, 255, 255, 10);
+    border-bottom: 1px solid rgba(255, 255, 255, 16);
+    padding: 2px 8px;
+    color: rgba(255, 255, 255, 160);
+    font-size: 12px;
+}
+QMenuBar::item {
+    padding: 4px 10px;
+    border-radius: 5px;
+    background: transparent;
+}
+QMenuBar::item:selected {
+    background-color: rgba(255, 255, 255, 18);
+}
+QMenu {
+    background-color: #1a1630;
+    border: 1px solid rgba(255, 255, 255, 22);
+    border-radius: 10px;
+    padding: 6px 4px;
+}
+QMenu::item {
+    padding: 7px 18px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 180);
+}
+QMenu::item:selected {
+    background-color: rgba(120, 80, 255, 70);
+    color: #ffffff;
+}
+QMenu::separator {
+    height: 1px;
+    background: rgba(255, 255, 255, 16);
+    margin: 4px 12px;
+}
+
+/* ── QTreeWidget / QListWidget (folder list) ─────── */
+QTreeWidget, QListWidget {
+    background-color: rgba(255, 255, 255, 14);
+    border: 1px solid rgba(255, 255, 255, 22);
+    border-radius: 12px;
+    padding: 6px;
+    outline: none;
+    show-decoration-selected: 1;
+}
+QTreeWidget::item, QListWidget::item {
+    padding: 8px 10px;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 200);
+    border: none;
+}
+QTreeWidget::item:hover, QListWidget::item:hover {
+    background-color: rgba(255, 255, 255, 18);
+}
+QTreeWidget::item:selected, QListWidget::item:selected {
+    background-color: rgba(120, 80, 255, 55);
+    color: #ffffff;
+}
+QTreeWidget::branch {
+    background: transparent;
+}
+QHeaderView::section {
+    background-color: rgba(255, 255, 255, 8);
+    color: #5a5070;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 14);
+}
+
+/* ── Ghost buttons (Add Folder, Exclude, etc.) ───── */
+QPushButton {
+    background-color: rgba(255, 255, 255, 15);
+    border: 1px solid rgba(255, 255, 255, 26);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 166);
+    font-size: 12px;
+    padding: 7px 16px;
+    min-width: 80px;
+}
+QPushButton:hover {
+    background-color: rgba(255, 255, 255, 26);
+    border-color: rgba(255, 255, 255, 40);
+}
+QPushButton:pressed {
+    background-color: rgba(255, 255, 255, 10);
+}
+QPushButton:disabled {
+    color: rgba(255, 255, 255, 50);
+    border-color: rgba(255, 255, 255, 12);
+}
+
+/* Primary "Start Scan" button — assign objectName="primaryButton" */
+QPushButton#primaryButton {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 rgba(120, 80, 255, 230),
+        stop:1 rgba(80, 160, 255, 230));
+    border: 1px solid rgba(150, 110, 255, 120);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 9px 28px;
+    min-width: 110px;
+}
+QPushButton#primaryButton:hover {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 rgba(140, 100, 255, 255),
+        stop:1 rgba(100, 180, 255, 255));
+}
+QPushButton#primaryButton:pressed {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 rgba(100, 60, 220, 255),
+        stop:1 rgba(60, 130, 220, 255));
+    padding-top: 10px; /* subtle press-down */
+}
+
+/* Danger "Remove" button — assign objectName="dangerButton" */
+QPushButton#dangerButton {
+    color: rgba(255, 80, 80, 160);
+    border-color: rgba(255, 80, 80, 40);
+}
+QPushButton#dangerButton:hover {
+    color: rgba(255, 100, 100, 220);
+    background-color: rgba(255, 60, 60, 18);
+    border-color: rgba(255, 80, 80, 70);
+}
+
+/* ── QComboBox (Detection level) ─────────────────── */
+QComboBox {
+    background-color: rgba(255, 255, 255, 18);
+    border: 1px solid rgba(255, 255, 255, 30);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 180);
+    font-size: 12px;
+    padding: 7px 32px 7px 12px;
+    min-width: 200px;
+}
+QComboBox:hover {
+    border-color: rgba(120, 80, 255, 100);
+}
+QComboBox:focus {
+    border-color: rgba(120, 80, 255, 160);
+}
+QComboBox::drop-down {
+    border: none;
+    width: 28px;
+}
+QComboBox::down-arrow {
+    image: none;
+    width: 8px;
+    height: 8px;
+    border-left: 2px solid rgba(255, 255, 255, 100);
+    border-bottom: 2px solid rgba(255, 255, 255, 100);
+    margin-right: 10px;
+}
+QComboBox QAbstractItemView {
+    background-color: #1a1630;
+    border: 1px solid rgba(255, 255, 255, 28);
+    border-radius: 10px;
+    selection-background-color: rgba(120, 80, 255, 70);
+    selection-color: #ffffff;
+    padding: 4px;
+    outline: none;
+}
+QComboBox QAbstractItemView::item {
+    padding: 8px 14px;
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 170);
+}
+
+/* ── QLabel ──────────────────────────────────────── */
+QLabel {
+    color: rgba(255, 255, 255, 180);
+    background: transparent;
+}
+QLabel#sectionLabel {
+    color: #5a5070;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+QLabel#exclusionLabel {
+    color: #9070cc;
+    font-size: 11px;
+}
+QLabel#detectionLabel {
+    color: rgba(255, 255, 255, 100);
+    font-size: 12px;
+}
+
+/* ── QStatusBar ──────────────────────────────────── */
+QStatusBar {
+    background-color: rgba(255, 255, 255, 6);
+    border-top: 1px solid rgba(255, 255, 255, 12);
+    color: #5a5070;
+    font-size: 11px;
+    padding: 0 12px;
+}
+QStatusBar::item {
+    border: none;
+}
+
+/* ── QScrollBar ──────────────────────────────────── */
+QScrollBar:vertical {
+    background: transparent;
+    width: 6px;
+    margin: 4px 2px;
+}
+QScrollBar::handle:vertical {
+    background: rgba(255, 255, 255, 40);
+    border-radius: 3px;
+    min-height: 30px;
+}
+QScrollBar::handle:vertical:hover {
+    background: rgba(120, 80, 255, 120);
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical,
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: transparent;
+    height: 0px;
+}
+
+/* ── QProgressBar (for scan progress) ───────────── */
+QProgressBar {
+    background-color: rgba(255, 255, 255, 14);
+    border: 1px solid rgba(255, 255, 255, 22);
+    border-radius: 5px;
+    text-align: center;
+    color: rgba(255, 255, 255, 140);
+    font-size: 11px;
+    height: 6px;
+}
+QProgressBar::chunk {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #7850ff, stop:1 #50a0ff);
+    border-radius: 5px;
+}
+
+/* ── QToolButton (icon-only buttons in lists) ──── */
+/* No hover background — the icon itself should read as the affordance. */
+QToolButton {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+QToolButton:hover, QToolButton:pressed, QToolButton:focus {
+    background: transparent;
+    border: none;
+}
+
+/* ── QCheckBox (per-row "exclude subfolders") ──── */
+QFrame#actionDivider {
+    background-color: rgba(255, 255, 255, 34);
+    border: none;
+}
+
+QCheckBox {
+    background: transparent;
+    color: rgba(255, 255, 255, 180);
+    spacing: 8px;
+    font-size: 12px;
+}
+QCheckBox::indicator {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 60);
+    background: rgba(255, 255, 255, 14);
+}
+QCheckBox::indicator:hover {
+    border-color: rgba(120, 80, 255, 160);
+}
+QCheckBox::indicator:checked {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+        stop:0 rgba(120, 80, 255, 230),
+        stop:1 rgba(80, 160, 255, 230));
+    border-color: rgba(150, 110, 255, 200);
+}
+
+/* ── QPlainTextEdit / QTextEdit (paste boxes) ──── */
+QPlainTextEdit, QTextEdit {
+    background-color: rgba(255, 255, 255, 10);
+    border: 1px solid rgba(255, 255, 255, 22);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 200);
+    selection-background-color: rgba(120, 80, 255, 80);
+    selection-color: #ffffff;
+    padding: 8px;
+    font-family: "JetBrains Mono", "Consolas", monospace;
+    font-size: 12px;
+}
+
+/* ── Hide QTreeWidget branch decoration entirely ── */
+QTreeWidget::branch:has-children:!has-siblings:closed,
+QTreeWidget::branch:closed:has-children:has-siblings,
+QTreeWidget::branch:open:has-children:!has-siblings,
+QTreeWidget::branch:open:has-children:has-siblings {
+    image: none;
+    border: none;
+    background: transparent;
+}
+
+/* ── QToolTip ────────────────────────────────────── */
+QToolTip {
+    background-color: #1a1630;
+    border: 1px solid rgba(255, 255, 255, 30);
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 180);
+    font-size: 12px;
+    padding: 5px 10px;
+}

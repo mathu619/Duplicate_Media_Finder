@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Build outputs
+build/
+dist/
+*.spec.bak
+
+# Local tooling and OS noise
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Runtime dependency downloads
+vendor/ffmpeg/
+vendor/chromaprint/
+vendor/_*.zip
+
+# Local caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+

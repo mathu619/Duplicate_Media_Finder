@@ -1,0 +1,43 @@
+QMainWindow {
+    background-color: #0f0c1a;
+}
+
+QLabel#chooserTitle {
+    color: rgba(255, 255, 255, 220);
+    font-family: "Segoe UI";
+    font-size: 34px;
+    font-weight: 600;
+}
+
+QFrame#chooserPanel {
+    background-color: rgba(255, 255, 255, 12);
+    border: 1px solid rgba(255, 255, 255, 24);
+    border-radius: 8px;
+}
+
+QToolButton#videoChoice,
+QToolButton#audioChoice {
+    background-color: rgba(255, 255, 255, 14);
+    border: 1px solid rgba(255, 255, 255, 28);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 220);
+    font-family: "Segoe UI";
+    font-size: 27px;
+    font-weight: 600;
+    padding: 24px;
+}
+
+QToolButton#videoChoice:hover {
+    background-color: rgba(90, 170, 255, 32);
+    border-color: rgba(115, 205, 255, 120);
+}
+
+QToolButton#audioChoice:hover {
+    background-color: rgba(255, 105, 190, 30);
+    border-color: rgba(255, 125, 200, 120);
+}
+
+QToolButton#videoChoice:pressed,
+QToolButton#audioChoice:pressed {
+    background-color: rgba(255, 255, 255, 8);
+}
