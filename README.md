@@ -10,8 +10,6 @@ It then suggests which copy to keep and sends the rest to the Recycle Bin.
 ![Python](https://img.shields.io/badge/python-3.13-blue)
 ![License](https://img.shields.io/badge/license-GPLv3-green)
 
-<!-- TODO: Buy Me a Coffee button -->
-
 <!-- TODO: screenshots
 ![Mode selection](docs/screenshots/selection.png)
 ![Video results](docs/screenshots/video-results.png)
