@@ -10,7 +10,6 @@ datas = [
     ("audio_app/ui/theme.qss", "audio_app/ui"),
     ("media_finder/selector.qss", "media_finder"),
     ("resources", "resources"),
-    ("vendor", "vendor"),
 ]
 
 hiddenimports = collect_submodules("send2trash")
